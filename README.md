@@ -38,7 +38,7 @@ $ `python easy-romfilter.py -v -e smc /home/foxy/roms snes_filtered/`
 You can of course use relative paths for in- and output directories  
 
 Do not actually copy anything but show everything that would happen:  
-$ `python easy-romfilter.py -vvv --simulate -e smc roms/ n64_filtered/`  
+$ `python easy-romfilter.py -vvv --simulate -e z64 roms/ n64_filtered/`  
 Of course you can use the short option `-s` instead of `--simulate if` you want, its the same wit `-e`  
 
 If you are not shure if you have done everything right, you should always use `-s`.  
