@@ -130,7 +130,7 @@ def show_help():
 	parser.add_argument('output_directory', help='Directory where to copy filtered files.')
 	parser.add_argument('-v', action='count', default=0, help='Increase verbosity level')
 	parser.add_argument('-s', '--simulate', action='store_true', default=False, help="Only output what would hapen but do not actualy copy files or create directories.")
-	parser.add_argument('-e', '--extension', choices=['z64', 'smc'], metavar="file_extension", required=True, help="File extension of rom files. Like z64 or smc")
+	parser.add_argument('-e', '--extension', metavar="file_extension", required=True, help="File extension of rom files. Like z64 or smc")
 	args = parser.parse_args()
 	#print args
 	return args
