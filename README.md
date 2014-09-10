@@ -5,7 +5,7 @@ If you have downloaded a huge rom collection from your favorite source and you w
 ### What is this?
 
 easy-romfilter traverses your collection of tagged rom files and only copies the most useful roms into a new collection.
-The Program checks each file for specific tags like language/region, version and if its a verified good dump. It ignores all rom files that are tagged as hack, bad dump, trained and other files you usually don't want for your emulators rom library. Each selected rom file will be copied into a tree level alphabetic directory tree. This means that a game like "AAAAH! Real Monsters" would be in `/a/aa/aaa` whereas "Super Mario World" would be copied to `s/su/sup/`. This directory structure should ensure that you find any game quickly even if you have a massive collection.  
+The Program checks each file for specific tags like language/region, version and if its a verified good dump. It ignores all rom files that are tagged as hack, bad dump, trained and other files you usually don't want for your emulators rom library. Each selected rom file will be copied into a three level alphabetic directory tree. This means that a game like "AAAAH! Real Monsters" would be in `/a/aa/aaa` whereas "Super Mario World" would be copied to `s/su/sup/`. This directory structure should ensure that you find any game quickly even if you have a massive collection.  
 
 ### Installation
 
@@ -22,14 +22,16 @@ On Linux with minimum required arguments:
 $ `python easy-romfilter.py -e smc rom_folder_path output_directory`  
 
 `-e file_extension`, `--extension file_extension` takes a rom file extension as an argument like smc for SNES or z64 for Nintendo 64 roms.  
+
 `rom_folder_path` is a relative or absolute path to your previous library.  
+
 `output_directory` is a relative or absolute path to the directory where the filtered library should be copied to. If the directory does not exist already it will be created.  
 
 These tree arguments are the only required ones.  
 
 #### Other Options
 
-As you can see above the programm has a few optional parameters.  
+As you can see above the program has a few optional parameters.  
 
 `-s`, `--simulate`		Only output what would happen but do not actually copy files or create directories. Very useful if you just want try out if everything works fine.  
 
@@ -42,17 +44,26 @@ As you can see above the programm has a few optional parameters.
 #### Examples
 
 Copy smc files from a directory called roms in your home directory to another one and output the filenames and directories of the files:  
+
 $ `python easy-romfilter.py -v -e smc /home/user/roms snes_filtered/`  
+
 **Note** that the output directory is a path relative to easy-romfilter.py  
 You can of course use relative paths for in- and output directories  
 
+
 Copy only files that are tagged as US or UK region to a mounted drive like a external hard drive.  
+
 $ `python easy-romfilter.py -r U,UK -e smc /home/user/roms /media/somedrive/somefolder/  
+
 **Note** that regions are evaluated in Order. This means that the program tries to find a rom tagged as U and only uses the next one if it cannot find the previous region tag.  
 
+
 Do not actually copy anything but show everything that would happen:  
+
 $ `python easy-romfilter.py -vvv --simulate -e z64 roms/ n64_filtered/`  
+
 Of course you can use the short option `-s` instead of `--simulate if` you want, its the same wit `-e`  
+
 
 *If you are not sure if you have done everything right, you should use `-s`.*  
 
