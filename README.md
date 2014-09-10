@@ -12,7 +12,7 @@ The program itself needs no installation. Since it is written in python it shoul
 If you already have a python installation on your System you can start the program from the command line.  
 
 easy-romfilter can take up several command line arguments  
-`easy-romfilter.py [-h] [-v] [-s] -e file_extension rom_folder_path output_directory`  
+`easy-romfilter.py [-h] [-v] [-s] [-r language_tags] -e file_extension rom_folder_path output_directory`  
 
 On Linux with minimum required arguments:  
 $ `python easy-romfilter.py -e smc rom_folder_path output_directory`  
@@ -26,22 +26,27 @@ These tree arguments are the only requierd ones.
 #### Other Options
 
 As you can see above the programm has a few optional parameters.  
-`-s`, `--simulate`		Only output what would happen but do not actually copy files or create directories. Very useful if you just want try out if everything works fine.  
+`-s`, `--simulate`		Only output what would happen but do not actually copy files or create directories. Very useful if you just want try out if everything works fine. 
+`-r tags`, `--regions tags` Takes a comma seperated list of region/langue tags and assumes it is orderd descending by priority. Example `-r U,UK,E`,... would try to find a US version of a game, and use UK in case there is no US version availiable. If there is no UK version it uses the European and so on. Dfault is `U,UK,E,J`
 `-v`					Increase how much output the program should generate. You can use it up to three times by just adding one to another. `-vvv`  
-`-h`, `--help`			print a help that shows useful informations for each argument.  
+`-h`, `--help`			print a help that shows useful informations for each argument.
 
 #### Examples
 
-Copy all smc files from a directory called roms in your home directory to another one and output the filenames and directories of the files:  
-$ `python easy-romfilter.py -v -e smc /home/foxy/roms snes_filtered/`  
+Copy smc files from a directory called roms in your home directory to another one and output the filenames and directories of the files:  
+$ `python easy-romfilter.py -v -e smc /home/user/roms snes_filtered/`  
 **Note** that the output directory is a path relative to easy-romfilter.py  
 You can of course use relative paths for in- and output directories  
+
+Copy only files that are tagged as US or UK region to a mounted drive like a external hard drive.  
+$ `python easy-romfilter.py -r U,UK -e smc /home/user/roms /media/somedrive/somefolder/  
+**Note** that regions are evalueted in Order. This means that the program tries to find a rom tagged as U and only uses the next one if it cannot find the previous region tag.  
 
 Do not actually copy anything but show everything that would happen:  
 $ `python easy-romfilter.py -vvv --simulate -e z64 roms/ n64_filtered/`  
 Of course you can use the short option `-s` instead of `--simulate if` you want, its the same wit `-e`  
 
-If you are not shure if you have done everything right, you should always use `-s`.  
+*If you are not shure if you have done everything right, you should use `-s`.*  
 
 ### Input and Output
 
