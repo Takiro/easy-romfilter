@@ -30,9 +30,13 @@ These tree arguments are the only requierd ones.
 #### Other Options
 
 As you can see above the programm has a few optional parameters.  
+
 `-s`, `--simulate`		Only output what would happen but do not actually copy files or create directories. Very useful if you just want try out if everything works fine.  
+
 `-r tags`, `--regions tags` Takes a comma seperated list of region/langue tags and assumes it is orderd descending by priority. Example `-r U,UK,E`,... would try to find a US version of a game, and use UK in case there is no US version availiable. If there is no UK version it uses the European and so on. Dfault is `U,UK,E,J`  
+
 `-v`					Increase how much output the program should generate. You can use it up to three times by just adding one to another. `-vvv`  
+
 `-h`, `--help`			print a help that shows useful informations for each argument.  
 
 #### Examples
