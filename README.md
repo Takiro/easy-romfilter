@@ -1,6 +1,6 @@
 ### Is this for me?
 
-If you have downloaded a huge rom collection from your favorite source and you want to automaticaly filter for just the languages you want and store them in an easy to search manner, than this is definately for you.
+If you have downloaded a huge rom collection from your favorite source and you want to automatically filter for just the languages you want and store them in an easy to search manner, than this is definitely for you.
 
 ### What is this?
 
@@ -25,7 +25,7 @@ $ `python easy-romfilter.py -e smc rom_folder_path output_directory`
 `rom_folder_path` is a relative or absolute path to your previous library.  
 `output_directory` is a relative or absolute path to the directory where the filtered library should be copied to. If the directory does not exist already it will be created.  
 
-These tree arguments are the only requierd ones.  
+These tree arguments are the only required ones.  
 
 #### Other Options
 
@@ -33,7 +33,7 @@ As you can see above the programm has a few optional parameters.
 
 `-s`, `--simulate`		Only output what would happen but do not actually copy files or create directories. Very useful if you just want try out if everything works fine.  
 
-`-r tags`, `--regions tags` Takes a comma seperated list of region/langue tags and assumes it is orderd descending by priority. Example `-r U,UK,E`,... would try to find a US version of a game, and use UK in case there is no US version availiable. If there is no UK version it uses the European and so on. Dfault is `U,UK,E,J`  
+`-r tags`, `--regions tags` Takes a comma separated list of region/language tags and assumes it is ordered descending by priority. Example `-r U,UK,E`,... would try to find a US version of a game, and use UK in case there is no US version available. If there is no UK version it uses the European and so on. Default is `U,UK,E,J`  
 
 `-v`					Increase how much output the program should generate. You can use it up to three times by just adding one to another. `-vvv`  
 
@@ -48,13 +48,13 @@ You can of course use relative paths for in- and output directories
 
 Copy only files that are tagged as US or UK region to a mounted drive like a external hard drive.  
 $ `python easy-romfilter.py -r U,UK -e smc /home/user/roms /media/somedrive/somefolder/  
-**Note** that regions are evalueted in Order. This means that the program tries to find a rom tagged as U and only uses the next one if it cannot find the previous region tag.  
+**Note** that regions are evaluated in Order. This means that the program tries to find a rom tagged as U and only uses the next one if it cannot find the previous region tag.  
 
 Do not actually copy anything but show everything that would happen:  
 $ `python easy-romfilter.py -vvv --simulate -e z64 roms/ n64_filtered/`  
 Of course you can use the short option `-s` instead of `--simulate if` you want, its the same wit `-e`  
 
-*If you are not shure if you have done everything right, you should use `-s`.*  
+*If you are not sure if you have done everything right, you should use `-s`.*  
 
 ### Input and Output
 
