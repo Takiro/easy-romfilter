@@ -57,7 +57,7 @@ class RomFilter:
 		match = re.match(pattern, file_name)
 
 		if match:
-			
+
 			# check language
 			if match.group(2): 						# was there a match
 				if match.group(2) in self.region:	# and is the region in our dict
@@ -152,7 +152,7 @@ def show_help():
 	parser.add_argument('-v', action='count', default=0, help='Increase verbosity level')
 	parser.add_argument('-s', '--simulate', action='store_true', default=False, help="Only output what would hapen but do not actualy copy files or create directories.")
 	parser.add_argument('-e', '--extension', metavar="file_extension", required=True, help="File extension of rom files. Like z64 or smc")
-	parser.add_argument('-r', '--regions', metavar="region_tags", help="Comma seperated list of regions or language ordered by priority.")
+	parser.add_argument('-r', '--regions', metavar="region_tags", help="Comma seperated list of regions or language ordered by priority. Dfault is U,UK,E,J")
 	args = parser.parse_args()
 	#print args
 	return args
