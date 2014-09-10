@@ -1,3 +1,7 @@
+### Is this for me?
+
+If you have downloaded a huge rom collection from your favorite source and you want to automaticaly filter for just the languages you want hand store them in an easy to search manner, than this is definately for you.
+
 ### What is this?
 
 easy-romfilter traverses your collection of tagged rom files and only copies the most useful roms into a new collection.
