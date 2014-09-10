@@ -28,7 +28,7 @@ class RomFilter:
 			
 			for k,v in enumerate(rtags):
 				# create score for each region
-				# we assume that regions are orderd descending by priority
+				# we assume that regions are ordered descending by priority
 				self.region[v] = float(l-k)
 		else:
 			#default
@@ -48,10 +48,10 @@ class RomFilter:
 		 # matches:
 		 #	1	name 								(.*)
 		 #	2	language flag 						(([G|E|U|J])\)
-		 #	3	optional: multilanguage with language count (\(M[0-9]\))?
+		 #	3	optional: multi language with language count (\(M[0-9]\))?
 		 #	4	optional: version info 				(\(V([0-9]\.[0-9])\))?
 		 #	5		version number X.X 				([0-9]\.[0-9])
-		 #	6	optional: verfied good dump 		(\[!\])?
+		 #	6	optional: verified good dump 		(\[!\])?
 		pattern = r'(.*)\(([A-Z]{1,2})\).?(\(M[0-9]\))?.?(\(V([0-9]\.[0-9])\))?.?(\[!\])?\.'
 		pattern += self.extension # TODO Compile the regex in constructor
 		match = re.match(pattern, file_name)
@@ -110,7 +110,7 @@ class RomFilter:
 						most_rated = f
 						rating = r
 				else:
-					self._output( 'Could not determine filetype of ' + f, self.warn)
+					self._output( 'Could not determine file type of ' + f, self.warn)
 
 		if most_rated != '':
 
@@ -137,7 +137,7 @@ class RomFilter:
 			if not self.simulate:
 				copy2(src, targetDir)
 		else:
-			# XXX this could rise a lot of warnings if regions are very restrictive. maybe a supress-warnings or a quiet flag is a good idea
+			# XXX this could rise a lot of warnings if regions are very restrictive. maybe a suppress-warnings or a quiet flag is a good idea
 			self._output( 'Found no rom in ' + path + 'that matches any pattern. Nothing copied.', self.warn)
 		return
 
@@ -146,13 +146,13 @@ class RomFilter:
 #end class
 
 def show_help():
-	parser = argparse.ArgumentParser(description='Filter game roms in a directory and copy fieles ito new one.')
+	parser = argparse.ArgumentParser(description='Filter game roms in a directory and copy files into new one.')
 	parser.add_argument('rom_folder_path', help='Directory to the rom folders')
 	parser.add_argument('output_directory', help='Directory where to copy filtered files.')
 	parser.add_argument('-v', action='count', default=0, help='Increase verbosity level')
-	parser.add_argument('-s', '--simulate', action='store_true', default=False, help="Only output what would hapen but do not actualy copy files or create directories.")
+	parser.add_argument('-s', '--simulate', action='store_true', default=False, help="Only output what would happen but do not actually copy files or create directories.")
 	parser.add_argument('-e', '--extension', metavar="file_extension", required=True, help="File extension of rom files. Like z64 or smc")
-	parser.add_argument('-r', '--regions', metavar="region_tags", help="Comma seperated list of regions or language ordered by priority. Dfault is U,UK,E,J")
+	parser.add_argument('-r', '--regions', metavar="region_tags", help="Comma separated list of regions or language ordered by priority. Dfault is U,UK,E,J")
 	args = parser.parse_args()
 	#print args
 	return args
