@@ -114,14 +114,7 @@ class RomFilter:
 
 		if most_rated != '':
 
-			# FIXME: replace all non alphanumeric characters (use a regex)
-			# this is crap
-			wrongChar= [".", "-", "'", "#", " "]
-
-			stripedname = most_rated
-			for c in wrongChar:
-				stripedname = stripedname.replace(c, '')
-			#end crap
+			stripedname = re.sub('[^A-Za-z]+', '', most_rated)
 
 			# copy most rated into new folder
 			targetDir = join(self.output_directory, join(stripedname[:1], stripedname[:2], stripedname[:3]).lower())
