@@ -34,18 +34,7 @@ class RomFilter:
 			#default
 			self.region = {'U':4.0, 'UK':3.0, 'E':2.0, 'J':1.0}
 
-	# Suggested verbosity levels
-	# 1 info
-	# 2 debug
-	# 3 trace
-	def _output(self, string, level=0):
-		if (level <= self.verbosity):
-			print string
-		return
-
-	def _rateFile(self, file_name):
-
-		 # matches:
+		# matches:
 		 #	1	name 								(.*)
 		 #	2	language flag 						(([G|E|U|J])\)
 		 #	3	optional: multi language with language count (\(M[0-9]\))?
@@ -53,8 +42,19 @@ class RomFilter:
 		 #	5		version number X.X 				([0-9]\.[0-9])
 		 #	6	optional: verified good dump 		(\[!\])?
 		pattern = r'(.*)\(([A-Z]{1,2})\).?(\(M[0-9]\))?.?(\(V([0-9]\.[0-9])\))?.?(\[!\])?\.'
-		pattern += self.extension # TODO Compile the regex in constructor
-		match = re.match(pattern, file_name)
+		pattern += self.extension
+
+		self.regex = re.compile(pattern)
+
+	def _output(self, string, level=0):
+		if (level <= self.verbosity):
+			print string
+		return
+
+	def _rateFile(self, file_name):
+
+		 
+		match = self.regex.match(file_name)
 
 		if match:
 
