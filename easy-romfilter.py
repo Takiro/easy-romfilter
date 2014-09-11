@@ -7,6 +7,8 @@ from os.path import join, isdir, isfile
 
 class RomFilter:
 
+	version = '1.1_beta'
+
 	def __init__(self, args):
 		self.rom_folder_path = args.rom_folder_path
 		self.output_directory = args.output_directory
@@ -146,8 +148,8 @@ def show_help():
 	parser.add_argument('-s', '--simulate', action='store_true', default=False, help="Only output what would happen but do not actually copy files or create directories.")
 	parser.add_argument('-e', '--extension', metavar="file_extension", required=True, help="File extension of rom files. Like z64 or smc")
 	parser.add_argument('-r', '--regions', metavar="region_tags", help="Comma separated list of regions or language ordered by priority. Dfault is U,UK,E,J")
+	parser.add_argument('--version', action='version', version=RomFilter.version)
 	args = parser.parse_args()
-	#print args
 	return args
 
 #end help
