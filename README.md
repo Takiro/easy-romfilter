@@ -16,7 +16,10 @@ The program itself needs no installation. Just download the file easy-romfilter 
 If you already have a python installation on your System you can start the program from the command line.  
 
 easy-romfilter can take up several command line arguments  
-`easy-romfilter.py [-h] [-v] [-s] [-r language_tags] -e file_extension rom_folder_path output_directory`  
+		
+		easy-romfilter.py	[-h] [-v] [-s] -e file_extension [-r region_tags]
+        					[--version] [--ignore-super]
+                         	rom_folder_path output_directory  
 
 On Linux with minimum required arguments:  
 $ `python easy-romfilter.py -e smc rom_folder_path output_directory`  
@@ -38,6 +41,10 @@ As you can see above the program has a few optional parameters.
 `-r tags`, `--regions tags` Takes a comma separated list of region/language tags and assumes it is ordered descending by priority. Example `-r U,UK,E`,... would try to find a US version of a game, and use UK in case there is no US version available. If there is no UK version it uses the European and so on. Default is `U,UK,E,J`  
 
 `-v`					Increase how much output the program should generate. You can use it up to three times by just adding one to another. `-vvv`  
+
+`--ignore-super`		The "Super " prefix lots of Super Nintendo games have is ignored for sorting. A game like "Super Mario World" would be sorted into m/ma/mar instead of /s/su/sup with lots of other games beginning with "Super "
+
+`--version`				Prints the programs version info and exits.  
 
 `-h`, `--help`			print a help that shows useful informations for each argument.  
 
