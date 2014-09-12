@@ -15,6 +15,7 @@ class RomFilter:
 		self.verbosity = args.v
 		self.simulate = args.simulate
 		self.extension = args.extension
+		self.ignorePrefix = args.ignore_super
 		
 		self.fatal = -1
 		self.warn = 0
@@ -116,10 +117,18 @@ class RomFilter:
 
 		if most_rated != '':
 
-			stripedname = re.sub('[^A-Za-z]+', '', most_rated)
+			stripedname = most_rated.lower()
+
+			# Remove the first Super that lots of Super Nintendo games have in their name
+			# So "Super Game Name" is sorted into "g/ga/gam/" instead of /s/su/sup
+			# with lots of other games stating with 'Super '
+			if self.ignorePrefix:
+				stripedname = re.sub('super ', '', stripedname, 1)
+			
+			stripedname = re.sub('[^A-Za-z]+', '', stripedname)
 
 			# copy most rated into new folder
-			targetDir = join(self.output_directory, join(stripedname[:1], stripedname[:2], stripedname[:3]).lower())
+			targetDir = join(self.output_directory, stripedname[:1], stripedname[:2], stripedname[:3])
 			if not isdir(targetDir):
 				self._output( 'Creating non existing directory ' + targetDir, self.info)
 				
@@ -149,6 +158,7 @@ def show_help():
 	parser.add_argument('-e', '--extension', metavar="file_extension", required=True, help="File extension of rom files. Like z64 or smc")
 	parser.add_argument('-r', '--regions', metavar="region_tags", help="Comma separated list of regions or language ordered by priority. Dfault is U,UK,E,J")
 	parser.add_argument('--version', action='version', version=RomFilter.version)
+	parser.add_argument('--ignore-super', action='store_true', default=False, help='If set the Super prefix lots of SNES games have in their name will be ignored.' )
 	args = parser.parse_args()
 	return args
 
