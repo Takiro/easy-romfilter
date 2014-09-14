@@ -16,6 +16,7 @@ class RomFilter:
         self.simulate = args.simulate
         self.extension = args.extension
         self.ignorePrefix = args.ignore_super
+        self.create_subfolder = args.create_subfolder
 
         self.fatal = -1
         self.warn = 0
@@ -134,6 +135,10 @@ class RomFilter:
             # copy most rated into new folder
             targetDir = join(self.output_directory, stripedname[:1],
                              stripedname[:2], stripedname[:3])
+            if self.create_subfolder:
+                res = self.regex.match(most_rated)
+                targetDir = join(targetDir,  res.group(1))
+
             if not isdir(targetDir):
                 self._output('Creating non existing directory ' +
                              targetDir, self.info)
@@ -155,10 +160,9 @@ class RomFilter:
                          'that matches any pattern. Nothing copied.',
                          self.warn)
         return
-
-
     # end copyRomFiles
 # end class
+
 
 def show_help():
     parser = argparse.ArgumentParser(
@@ -179,9 +183,10 @@ def show_help():
                         version=RomFilter.version)
     parser.add_argument('--ignore-super', action='store_true', default=False,
                         help='If set the Super prefix lots of SNES games have in their name will be ignored.')
+    parser.add_argument('--create-subfolder', action='store_true', default=False,
+                        help='Creates a sub-folder for every Game. Useful for keeping rom and save files together.')
     args = parser.parse_args()
     return args
-
 # end help
 
 
