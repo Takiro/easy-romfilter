@@ -51,7 +51,7 @@ class RomFilter:
 
 	def _output(self, string, level=0):
 		if (level <= self.verbosity):
-			print string
+			print(string)
 		return
 
 	def _rateFile(self, file_name):
@@ -133,7 +133,7 @@ class RomFilter:
 				self._output( 'Creating non existing directory ' + targetDir, self.info)
 				
 				if not self.simulate:
-					makedirs(targetDir, mode=0775)
+					makedirs(targetDir, mode=0o775)
 			
 			src =join(path,most_rated)
 			self._output( 'Copying '+ most_rated + ' from ' + src + ' to ' + targetDir, self.info)
