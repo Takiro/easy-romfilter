@@ -94,7 +94,7 @@ Of course you can use the short option `-s` instead of `--simulate if` you want,
 ### Input and Output
 
 easy-romfilter assumes that all the rom files that belong to one game reside in one folder even if there is just one version of the rom available.  
-This means your source directory should look like this. After the first level you can introduce as many subdirectories as long as thy group files of the same game.  
+This means your source directory should look like this. After the first level you can introduce as many subdirectories as long as they group files of the same game.  
 
 		.
 		├── 2020 Super Baseball
