@@ -44,6 +44,8 @@ As you can see above the program has a few optional parameters.
 
 `--ignore-super`		The "Super " prefix lots of Super Nintendo games have is ignored for sorting. A game like "Super Mario World" would be sorted into m/ma/mar instead of /s/su/sup with lots of other games beginning with "Super "
 
+`--create-subfolder`	Put every rom file into a subdirectory. Useful to keep save and rom file together when using emulators that create save files in the roms directory.
+
 `--version`				Prints the programs version info and exits.  
 
 `-h`, `--help`			print a help that shows useful informations for each argument.  
