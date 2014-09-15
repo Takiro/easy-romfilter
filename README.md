@@ -1,3 +1,18 @@
+### tl;dr
+
+1. Download easy-romfilter.py
+2. Open a command line
+3. Navigate to easy-romfilter.py
+4. On Linux type: `python easy-romfilter.py -e <ext> <input> <outuput>
+	4.1 Replace <ext> with the rom file extension
+	4.2 Replace <input> with the directory of the rom collection
+	4.3 Replace <output> with a directory path where the roms should be copied to
+5. Press ENTER
+6. Wait until finished
+
+Example:
+`easy-romfilter.py -e z64 ~/roms/n64/ ~/roms/n64_filtered`
+
 ### Is this for me?
 
 If you have downloaded a huge rom collection from your favorite source and you want to automatically filter for just the languages you want and store them in an easy to search manner, than this is definitely for you.
