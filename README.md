@@ -24,7 +24,7 @@ The Program checks each file for specific tags like language/region, version and
 
 ### Installation
 
-The program itself needs no installation. Just download the file easy-romfilter and run it. Since it is written in python it should run without an issue on any Operation System with python support. A lot of Linux distributions already ship with python installed. You probably need to install python on Windows, Mac OS and other Operating Systems, first.  
+The program itself needs no installation. Just download the file easy-romfilter and run it. Since it is written in python it should run without an issue on any Operation System with python support. A lot of Linux distributions already ship with python installed. You probably need to install python on Windows, Mac OS and other Operating Systems, first. easy-romfilter is written for Python 3 but also works with 2.7.6.
 
 ### Usage
 
