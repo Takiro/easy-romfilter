@@ -7,7 +7,7 @@ from os.path import join, isdir, isfile
 
 class RomFilter:
 
-    version = '1.1_beta'
+    version = '1.1.0-beta'
 
     def __init__(self, args):
         self.rom_folder_path = args.rom_folder_path
