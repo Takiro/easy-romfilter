@@ -1,14 +1,14 @@
 ### tl;dr
 
-1. Download easy-romfilter.py
-2. Open a command line
-3. Navigate to easy-romfilter.py
-4. On Linux type: `python easy-romfilter.py -e <ext> <input> <outuput>
-	4.1 Replace <ext> with the rom file extension
-	4.2 Replace <input> with the directory of the rom collection
-	4.3 Replace <output> with a directory path where the roms should be copied to
-5. Press ENTER
-6. Wait until finished
+1. Download easy-romfilter.py  
+2. Open a command line  
+3. Navigate to easy-romfilter.py  
+4. On Linux type: `python easy-romfilter.py -e <ext> <input> <outuput>  
+	4.1 Replace <ext> with the rom file extension  
+	4.2 Replace <input> with the directory of the rom collection  
+	4.3 Replace <output> with a directory path where the roms should be copied to  
+5. Press ENTER  
+6. Wait until finished  
 
 Example:
 `easy-romfilter.py -e z64 ~/roms/n64/ ~/roms/n64_filtered`
@@ -45,7 +45,7 @@ $ `python easy-romfilter.py -e smc rom_folder_path output_directory`
 
 `output_directory` is a relative or absolute path to the directory where the filtered library should be copied to. If the directory does not exist already it will be created.  
 
-These tree arguments are the only required ones.  
+These three arguments are the only required ones.  
 
 #### Other Options
 
@@ -79,7 +79,7 @@ Copy only files that are tagged as US or UK region to a mounted drive like a ext
 
 $ `python easy-romfilter.py -r U,UK -e smc /home/user/roms /media/somedrive/somefolder/  
 
-**Note** that regions are evaluated in Order. This means that the program tries to find a rom tagged as U and only uses the next one if it cannot find the previous region tag.  
+**Note** that regions are evaluated in Order. This means that the program tries to find a rom tagged as U and only uses the next one if it cannot find the region tag.  
 
 
 Do not actually copy anything but show everything that would happen:  
