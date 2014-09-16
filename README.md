@@ -3,7 +3,7 @@
 1. Download easy-romfilter.py  
 2. Open a command line  
 3. Navigate to easy-romfilter.py  
-4. On Linux type: `python easy-romfilter.py -e <ext> <input> <outuput>  
+4. On Linux type: `python easy-romfilter.py -e <ext> <input> <outuput>`  
 	4.1 Replace <ext> with the rom file extension  
 	4.2 Replace <input> with the directory of the rom collection  
 	4.3 Replace <output> with a directory path where the roms should be copied to  
