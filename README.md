@@ -53,7 +53,7 @@ You can of course use relative paths for in- and output directories
 
 Copy only files that are tagged as US or UK region to a mounted drive like a external hard drive.  
 
-$ `python easy-romfilter.py -r U,UK -e smc /home/user/roms /media/somedrive/somefolder/  
+$ `python easy-romfilter.py -r U,UK -e smc /home/user/roms /media/somedrive/somefolder/`  
 
 **Note** that regions are evaluated in Order. This means that the program tries to find a rom tagged as U and only uses the next one if it cannot find the previous region tag.  
 
